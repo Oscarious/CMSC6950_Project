@@ -3,7 +3,7 @@ by Qingyu Zhang
 ## Introduction
 Course project for CMSC6950 Spring 2021.<br><br>
 **sbpy** is a community effort to build a Python package for small-body planetary astronomy in the form of an Astropy affiliated package.<br><br>
-sbpy is available and being maintained as a github repository at github.com/NASA-PlanetaryScience/sbpy; documentation is available on sbpy.readthedocs.io
+sbpy is available and being maintained as a github repository at [NASA-Planetary-Science/sbpy](https://github.com/NASA-Planetary-Science/sbpy); documentation is available on [sbpy.readthedocs.io](https://sbpy.readthedocs.io/en/latest/#)
 
 ## Setup
 1. Install [mini-forge](https://github.com/conda-forge/miniforge)
