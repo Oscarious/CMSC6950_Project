@@ -13,6 +13,7 @@ conda create -n python=3.6 <br>
 3. Dependencies: <br>
     - conda install sbpy
     - conda install -c conda-forge openorb
+    - conda install pandas
 ## Computational Task
 1. Using the Haser-model to calculate the column density of CO2.
 2. extract the orbit data of a planet, compute and plot its orbit and position at a designated time.
