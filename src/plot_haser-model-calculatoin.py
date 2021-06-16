@@ -6,6 +6,7 @@ import astropy.units as u
 from sbpy.activity import gas
 import pandas as pd
 import pickle as pk
+import os
 
 fig = plt.figure(1)
 fig.clear()
@@ -25,4 +26,7 @@ plt.setp(ax, xlabel='Radial distance (km)', xscale='log',
          ylabel='Column density (m$^{-2}$)', ylim=(1e12, 1e18), yscale='log')
 ax.legend()
 plt.tight_layout()
-plt.savefig("../images/haser.png")
+if 'src' in os.listdir():
+    plt.savefig("images/haser.png")
+else:
+    plt.savefig("../images/haser.png")

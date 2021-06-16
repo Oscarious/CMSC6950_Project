@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import astropy.units as u
 import sys
+import os
 from astropy.time import Time
 from sbpy.data import Ephem, Orbit
 
@@ -61,7 +62,10 @@ def main():
 
     plt.setp(ax, xlabel='X (au)', ylabel='Y (au)')
     plt.legend()
-    plt.savefig("../images/orbit.png")
+    if 'src' in os.listdir():
+        plt.savefig("images/orbit.png")
+    else:
+        plt.savefig("../images/orbit.png")
 
 if __name__ == '__main__':
     if len(sys.argv) != 4 and len(sys.argv) != 1:
