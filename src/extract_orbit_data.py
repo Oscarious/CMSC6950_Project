@@ -61,7 +61,7 @@ def main():
 
     plt.setp(ax, xlabel='X (au)', ylabel='Y (au)')
     plt.legend()
-    plt.savefig("../image/orbit.png")
+    plt.savefig("../images/orbit.png")
 
 if __name__ == '__main__':
     if len(sys.argv) != 4 and len(sys.argv) != 1:

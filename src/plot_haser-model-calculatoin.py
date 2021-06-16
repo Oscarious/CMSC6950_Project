@@ -25,4 +25,4 @@ plt.setp(ax, xlabel='Radial distance (km)', xscale='log',
          ylabel='Column density (m$^{-2}$)', ylim=(1e12, 1e18), yscale='log')
 ax.legend()
 plt.tight_layout()
-plt.savefig("../image/haser.png")
+plt.savefig("../images/haser.png")
