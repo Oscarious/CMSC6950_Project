@@ -2,27 +2,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import astropy.units as u
+import sys
 from astropy.time import Time
 from sbpy.data import Ephem, Orbit
-
-
-# Define the dates of interest and retrieve orbits for Earth, Jupiter, and the comet in 2018.  For the comet, we'll also want the perihelion date in 2008.
-obs_dates = {
-    'spitzer': Time(['2007-12-08', '2008-01-17', '2008-04-24',
-                     '2008-05-24', '2008-07-02']),
-    'bass': Time('2018-12-10')
-}
-
-epochs = (obs_dates['spitzer'].jd.mean(), obs_dates['bass'].jd)
-comet = Orbit.from_horizons('46P', 'designation', epochs=epochs,
-                            closest_apparition=True)
-
-epochs = obs_dates['bass']
-planets = Orbit.from_horizons((399, 599), 'majorbody', epochs=epochs)
-
-# inspect the result
-print(comet, planets)
-print(comet.field_names)
 
 # Define some plotting functions
 # Plot the full orbit
@@ -61,7 +43,7 @@ def main():
     planets['G'] = 0.15
 
     # orbits
-    for label, orb in zip(('46P/Wirtanen', 'Earth', 'Jupiter'),
+    for label, orb in zip((target_id, 'Earth', 'Jupiter'),
                         (comet[1], planets[0], planets[1])):
         plot_orbit(ax, orb, label=label)
 
@@ -82,4 +64,32 @@ def main():
     plt.savefig("../image/orbit.png")
 
 if __name__ == '__main__':
+    if len(sys.argv) != 4 and len(sys.argv) != 1:
+        print("Usage: python {} <target_id> <target_type> <time>".format(sys.argv[0]))
+        print("default: python {} 46P designation 2007-12-08".format(sys.argv[0]))
+        exit(1)
+    # set default arguments, besides the input planet we also care about the Erth and Jupyter.
+    obs_dates = {
+        'spitzer': Time(['2008-12-10']),
+        'bass': Time('2018-12-10')
+    }
+    target_id = '46P'
+    target_type = 'designation'
+    # set user's custom arguments
+    if len(sys.argv) == 2:
+        target_id = sys.argv[1]
+        target_type = sys.argv[2]
+        obs_dates['spitzer'] = sys.argv[3]
+
+    epochs = (obs_dates['spitzer'].jd.mean(), obs_dates['bass'].jd)
+    comet = Orbit.from_horizons(target_id, target_type, epochs=epochs,
+                                closest_apparition=True)
+
+    epochs = obs_dates['bass']
+    planets = Orbit.from_horizons((399, 599), 'majorbody', epochs=epochs)
+
+    # inspect the result
+    print(comet, planets)
+    print(comet.field_names)
+
     main()
