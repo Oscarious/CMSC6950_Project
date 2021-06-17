@@ -1,6 +1,6 @@
 # FIGURES = images/DataExtraction.png images/task1.png images/haser.png images/orbit.png images/structure.png images/task2.png
 
-ALL: orbit haser report clean
+ALL: orbit haser report
 
 orbit: src/orbit.py
 	python src/orbit.py
@@ -17,10 +17,12 @@ report: report.tex
 .PHONY: clean clean_report
 
 clean: clean_report
-	rm haser_ds
+	rm images/haser.png
+	rm images/orbit.png
 
 clean_report:
 	rm report.aux
 	rm report.log
 	rm report.out
 	rm report.bbl
+	rm report.pdf
