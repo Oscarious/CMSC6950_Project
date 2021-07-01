@@ -40,17 +40,12 @@
 %------------------------------------ chapter 1 -------------------------------------
 \chapter{Introduction}
 
-First document. This is a simple example, with no
-extra parameters or packages included.
-
 \section{Sbpy}
 
-sbpy is an Astropy affiliated package for small-body planetary astronomy. It is meant to supplement functionality provided by Astropy with functions and methods that are frequently used in the context of planetary astronomy with a clear focus on asteroids and comets\cite{Mommert2019}.
-
-sbpy is motivated by the idea to provide a basis of well-tested and well-documented methods to planetary astronomers in order to boost productivity and reproduceability\cite{Mommert2019}.
+Sbpy is an Astropy affiliated package for small-body planetary astronomy. It is meant to supplement functionality provided by Astropy with functions and methods that are frequently used in the context of planetary astronomy with a clear focus on asteroids and comets\cite{Mommert2019}.
 
 \section{Module Structure}
-sbpy consists of a number of sub-modules, each of which provides functionality that is tailored to individual aspects asteroid and comet research. The general module design is shown in the following figure \ref{fig:structure}.
+Sbpy contains several sub-modules, each of which is designed to provide certain functionalities relevant to astronomy study. The figure below is from the Sbpy document website which shows the general design of the package.
 
 \begin{figure}[htb]
     \centering
@@ -59,9 +54,9 @@ sbpy consists of a number of sub-modules, each of which provides functionality t
     \label{fig:structure}
 \end{figure}
 
-Modules are shown as rectangular boxes, important classes as rounded colored boxes. The left-hand side of the schematic is mainly populated with support modules that act as data containers and query functions. The right-hand side of the schematic shows modules that focus on small body-related functionality. Colored symbols match the colors and symbols of classes and modules they are using.
+Modules are shown as rectangular boxes, the colored rounded boxes are supporting modules which are the basics of this package. They are all in the data module and support many of the computations and models in this package. on the right hand side, these modules are generally applications of the data module, and each of them is designed to solve problems in a certain filed of astronomy study. We can see their Dependencies relationships from those colored symbols, where colored symbols match the modules they are using with the same colors and symbols.
 
-In our application, we will be using \emph{Ephem} and \emph{Orbit} modules as our data source, then \emph{activity} module to calculate some tasks.
+In our application, we will mainly use the \emph{activity} module to finish our computational tasks which also uses \emph{Ephem} and \emph{Orbit} modules as our data source.
 
 %------------------------------------- end chapter ----------------------------------
 %------------------------------------ chapter 2 -------------------------------------
